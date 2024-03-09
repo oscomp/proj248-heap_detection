@@ -24,15 +24,16 @@ Heap异常是指HeapBufferleak、HeapBufferOverflow、UseAfterFree、DoubleFree�
 杨冬东 
 - email: yangdongdong@xiaomi.com  
 
-冯雪松
-- fengxuesong@xiaomi.com
+原勇健
+- yuanyongjian@xiaomi.com
 
 ### 难度
 
 中等
 
 **说明**
-1. 建议使用c/c++/rust语言,运行环境可选择任一linux发行版
+1. 建议使用c/c++/rust语言,运行环境可选择任一linux发行版,建议使用nuttx的sim模拟器开发与调试
+  nuttx模拟器环境搭建参考文档:  https://github.com/apache/nuttx/blob/master/Documentation/guides/simulator.rst
 2. 低性能开销、低内存消耗，稳定性高
 3. 可运行在arm/arm64/x86架构上
 4. 可准确记录调用栈、内存大小、内存地址、当前的进程名称
@@ -55,6 +56,8 @@ Heap异常是指HeapBufferleak、HeapBufferOverflow、UseAfterFree、DoubleFree�
 **第二题**
 
 实现在适当的时机触发对HeapBufferleak检测，查阅相关资料，尽量准确的总结内存泄露特征，对每种特征加权，权值大于某个阈值意味着该内存泄露的概率较高，对泄露概率较高的内存输出预警信息，预警信息包含的内容参考特征4。特征及其权值最好能够简单的配置，可由应用场景来进行不同的组合。
+提示:内存泄漏自动检测，可以在特征权值达到一定阈值之后触发，为了捕获内存泄漏位置，可以在系统重启后或kill掉某个怀疑的进程后启动检测。
+
 
 **第三题**
 
